@@ -1,17 +1,99 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title>{% block title %}  {% endblock %}</title>
+    <!-- Bootstrap -->
     <link rel="stylesheet"
      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
      crossorigin="anonymous">
+
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"></script>
+
+     <!-- Medium Style Editor -->
+     <script src="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/js/medium-editor.min.js"></script>
+     <link rel="stylesheet"
+     href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css"
+     type="text/css" media="screen" charset="utf-8">
+
+     <!-- Custom CSS -->
+      <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+
+     <!-- Fonts -->
+     <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Stylish&display=swap" rel="stylesheet">
+
+     <!-- Glyphicons -->
+     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
   </head>
   <body>
+
+      <!-- Navbar -->
+      <nav class="navbar navbar-dark bg-dark myitems">
+        <div class="container">
+
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="navbar-brand bigbrand" href="{% url 'post_list' %}">My Tech Blog</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'about' %}">
+                <span class="fa fa-info-circle fa-2x" aria-hidden="true"></span></a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.github.com">
+                <span class="fa fa-github-square fa-2x" aria-hidden="true"></a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.linkedin.com">
+                <span class="fa fa-linkedin-square fa-2x" aria-hidden="true"></span></a>
+            </li>
+          </ul>
+
+          <ul class="nav justify-content-end">
+            {% if user.is_authenticated %}
+              <li class="nav-item ">
+                <a class="nav-link" href="{% url 'post_new' %}">New Post</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'draft_list' %}">Drafts</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+              </li>
+
+              <li id="welcome" class="nav-item" >
+                <a class="nav-link">Welcome: {{ user.username }}</a>
+              </li>
+            {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}">
+                  <span class="fa fa-user" aria-hidden="true"></span> Login</a>
+              </li>
+            {% endif %}
+
+        </div>
+      </nav>
+
     <div class="container">
-      {% block content %}
-      {% endblock %}
+      <div class="content container">
+        <div class="row">
+          <div class="col-md-8">
+            {% block content %}
+            {% endblock %}
+          </div>
+        </div>
+      </div>
     </div>
+    
   </body>
 </html>
