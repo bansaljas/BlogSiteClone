@@ -1,0 +1,26 @@
+/* font-family: 'Dancing Script', cursive; */
+/* font-family: 'Stylish', sans-serif; */
+#welcome{
+  color: white;
+}
+
+.myitems{
+  font-size: 1.2em;
+  font-family: 'Stylish', sans-serif;
+}
+
+.bigbrand{
+   font-size: 1.7em;
+   font-family: 'Stylish', sans-serif;
+}
+
+.info{
+  text-align: center;
+  font-family: 'Dancing Script', cursive;
+}
+
+.centerstage{
+  font-family: 'Stylish', sans-serif;
+  margin-left: auto;
+  margin-right: auto;
+}
