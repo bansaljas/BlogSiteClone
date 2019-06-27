@@ -13,5 +13,5 @@ urlpatterns=[
     path('post/<int:key>/comment',views.add_or_get_comment,name="add_comment"),
     path('comment/<int:key>/approve',views.approve_comment,name="approve_comment"),
     path('comment/<int:key>/remove',views.remove_comment,name="remove_comment"),
-    path('post/<int:pk>/publish',views.publish_post,name="pot_publish")
+    path('post/<int:pk>/publish',views.publish_post,name="post_publish")
 ]
