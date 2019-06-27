@@ -6,8 +6,8 @@
     <div class="centerstage">
       {% for post in post_list %}
           <h1><a class="posttitle" href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h1>
-          <p>Published on: {{post.publish_date|date:DMY}}</p>
-          <a href="{% url 'post_detail' pk=post.pk %}">{{post.approve_comments.count}} Comments</a>
+          <p>Published on: {{post.publish_date|date:"D M Y"}}</p>
+          <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{post.approved_comments.count}}</a>
       {% empty%}
          <h1>No posts yet.</h1>
       {% endfor %}

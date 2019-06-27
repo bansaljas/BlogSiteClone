@@ -5,9 +5,9 @@
     <h1 class="posttitle"> {{post.title}}</h1>
 
       {% if post.publish_date %}
-          <p>{{post.publish_date}}</p>
+          <p>{{post.publish_date|date:"D M Y"}}</p>
       {% else %}
-          <a class="btn btn-warning" href="{% url 'post_publish' %}">Publish</a>
+          <a class="btn btn-warning" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
       {% endif %}
 
      <p class='postcontent'>{{ post.text|safe|linebreaksbr}}</p>
@@ -20,13 +20,13 @@
        <!-- Comments   -->
        <hr>
        <div class="container">
-
+         <a class="btn btn-primary btn-comment" href="{% url 'add_comment' pk=post.pk %}">Add Comment</a>
          {% for comment in post.comments.all %}
            <br>
 
             {% if user.is_authenticated or comment.approve_comment %}
                 <p>{{comment.text|safe|linebreaks}}</p>
-                <p>Posted By: <strong>{{comment.author}}</strong> on {{comment.create_date|date:DMY}}</p>
+                <p>Posted By: <strong>{{comment.author}}</strong> on {{comment.create_date|date:"D M Y"}}</p>
 
                 {% if not comment.approve_comment %}
                    <a class="btn btn-warning" href="{% url 'approve_comment' pk=comment.pk %}"><span class="fa fa-check"></span></a>

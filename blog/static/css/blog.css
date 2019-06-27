@@ -24,3 +24,8 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.btn-comment{
+  position: absolute;
+  right: 0px;
+}
