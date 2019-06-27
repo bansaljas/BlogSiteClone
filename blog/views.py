@@ -51,7 +51,7 @@ class DraftListView(LoginRequiredMixin,ListView):
 
 ##FBVs for comments
 
-@login_required
+# @login_required
 def add_or_get_comment(request,pk):
     post=get_object_or_404(Post,pk=pk)
     if request.method=='POST':
