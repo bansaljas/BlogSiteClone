@@ -10,11 +10,11 @@ Home Page:
 Login Page:
 ![](images/Login.png)
 
-Draft View:
-![](images/Draft_Post.png)
-
 Medium Editor:
 ![](images/Medium%20Editor.png)
+
+Draft View:
+![](images/Draft_Post.png)
 
 Delete Post:
 ![](images/Delete_Post.png)
