@@ -17,7 +17,7 @@ class Post(models.Model):
         return reverse ('post_detail',kwargs={'pk':self.pk})
 
     def publish(self):
-        self.publish_date=timezone.now()
+        self.publish_date=(timezone.now())
         self.save()
 
     def approved_comments(self):
