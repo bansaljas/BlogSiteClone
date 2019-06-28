@@ -22,7 +22,7 @@
 
      <!-- Fonts -->
      <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Stylish&display=swap" rel="stylesheet">
-
+     <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
      <!-- Glyphicons -->
      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
@@ -81,16 +81,20 @@
         </div>
       </nav>
 
+  <!-- CONTENT -->
+  <div class="loader">
     <div class="container">
       <div class="content container">
         <div class="row">
           <div class="col-md-8">
-            {% block content %}
-            {% endblock %}
+            <!-- <div class="jumbotron"> -->
+              {% block content %}
+              {% endblock %}
+            <!-- </div> -->
           </div>
         </div>
       </div>
     </div>
-
+  </div>
   </body>
 </html>

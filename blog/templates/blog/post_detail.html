@@ -5,7 +5,7 @@
     <h1 class="posttitle"> {{post.title}}</h1>
 
       {% if post.publish_date %}
-          <p>{{post.publish_date|date:"D M Y"}}</p>
+          <p>{{post.publish_date|date:"d-m-y P"}}</p>
       {% else %}
           <a class="btn btn-warning" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
       {% endif %}
@@ -26,7 +26,7 @@
 
             {% if user.is_authenticated or comment.approve_comment %}
                 <p>{{comment.text|safe|linebreaks}}</p>
-                <p>Posted By: <strong>{{comment.author}}</strong> on {{comment.create_date|date:"D M Y"}}</p>
+                <p>Posted By: <strong>{{comment.author}}</strong> on {{comment.create_date|date:"d-m-y P"}}</p>
 
                 {% if not comment.approve_comment %}
                    <a class="btn btn-warning" href="{% url 'approve_comment' pk=comment.pk %}"><span class="fa fa-check"></span></a>

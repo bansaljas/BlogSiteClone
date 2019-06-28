@@ -5,7 +5,7 @@
     {% for post in post_list %}
         <h1 class="posttitle"><a href="{% url 'post_detail' pk=post.pk%}">
           {{post.title}}</a></h1>
-        <p>Created on: {{post.create_date|date:"D M Y"}}</p>
+        <p>Created on: {{post.create_date|date:"d-m-y P"}}</p>
         <p>{{post.text|safe|truncatechars:200}}</p>
     {% empty %}
       <h1>No drafts exist.</h1>
