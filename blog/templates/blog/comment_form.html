@@ -3,11 +3,11 @@
 
   {% block content %}
     <h1 class="posttitle">Add comment:</h1>
-    <form method="post">
+    <form class="formcontent" method="post">
       {% csrf_token %}
       {{form.as_p}}
-      <button type="submit" class="btn btn-primary">Post comment</button>
+      <button type="submit" class="btn btn-primary btn-comment">Post comment</button>
     </form>
-
-    <script>var editor = new MediumEditor('.editable');</script> 
+    <br><br>
+    <script>var editor = new MediumEditor('.editable');</script>
   {% endblock %}

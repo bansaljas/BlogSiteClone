@@ -3,11 +3,12 @@
 
   {% block content %}
     {% for post in post_list %}
-        <h1 class="posttitle"><a href="{% url 'post_detail' pk=post.pk%}">
+        <h1><a class="posttitle" href="{% url 'post_detail' pk=post.pk%}">
           {{post.title}}</a></h1>
-        <p>Created on: {{post.create_date|date:"d-m-y P"}}</p>
-        <p>{{post.text|safe|truncatechars:200}}</p>
+        <p class="posttitle">Created on: {{post.create_date|date:"d-m-y P"}}</p>
+        <h4 class="postcontent">{{post.text|safe|truncatechars:200}}</h4>
+        <hr>
     {% empty %}
-      <h1>No drafts exist.</h1>
+      <h1 class="postcontent">No drafts exist.</h1>
     {% endfor %}
   {% endblock %}

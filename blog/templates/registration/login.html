@@ -2,21 +2,21 @@
    {% block title %} Login {% endblock %}
 
    {% block content %}
-      <div class="jumbotron">
 
-        <h2>Please Login: </h2>
-        <p>(Must be SuperUser, please check admin for issues.)</p>
+        <h2 class="posttitle">Please Login: </h2>
+        <p class="logintext">(Must be SuperUser, please check admin for issues.)</p>
 
         <!-- {% if form.errors %}
            <h6>Your username and password do not match! Please try again.</h6>
         {% endif %} -->
 
-        <form action="{% url 'login' %}" method="post">
+        <form class="formcontent" action="{% url 'login' %}" method="post">
           {% csrf_token %}
           {{form.as_p}}
-          <input type="submit" class="btn btn-primary" name="" value="Login">
+          <input type="submit" class="btn btn-primary btn-comment" name="" value="Login">
           <input type="hidden" name="next" value="{{next}}">
         </form>
+        <br>
+        <br>
 
-      </div>
     {% endblock %}

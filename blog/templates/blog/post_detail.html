@@ -2,15 +2,18 @@
   {% block title %} Blog {% endblock %}
 
   {% block content %}
+    <br>
     <h1 class="posttitle"> {{post.title}}</h1>
 
       {% if post.publish_date %}
-          <p>{{post.publish_date|date:"d-m-y P"}}</p>
+          <p class="posttitle">{{post.publish_date|date:"d-m-y P"}}</p>
       {% else %}
-          <a class="btn btn-warning" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
+          <a class="btn btn-primary btn-comment" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
+          <br>
+          <br>
       {% endif %}
 
-     <p class='postcontent'>{{ post.text|safe|linebreaksbr}}</p>
+     <h3 class='postcontent'>{{ post.text|safe}}</h3>
 
       {% if user.is_authenticated %}
         <a class="btn btn-primary" href="{% url 'post_edit' pk=post.pk %}"><span class="fa fa-pencil"></span></a>
@@ -19,25 +22,25 @@
 
        <!-- Comments   -->
        <hr>
-       <div class="container">
+       <div class="container postcontent">
          <a class="btn btn-primary btn-comment" href="{% url 'add_comment' pk=post.pk %}">Add Comment</a>
          {% for comment in post.comments.all %}
-           <br>
-
             {% if user.is_authenticated or comment.approve_comment %}
-                <p>{{comment.text|safe|linebreaks}}</p>
+                <h4>{{comment.text|safe}}</h4>
                 <p>Posted By: <strong>{{comment.author}}</strong> on {{comment.create_date|date:"d-m-y P"}}</p>
 
                 {% if not comment.approve_comment %}
-                   <a class="btn btn-warning" href="{% url 'approve_comment' pk=comment.pk %}"><span class="fa fa-check"></span></a>
-                   <a class="btn btn-danger" href="{% url 'remove_comment' pk=comment.pk %}"><span class="fa fa-remove"></span></a>
+                  <div class="cmnt">
+                   <a class="btn btn-default" href="{% url 'approve_comment' pk=comment.pk %}"><span class="fa fa-check"></span></a>
+                   <a class="btn btn-default" href="{% url 'remove_comment' pk=comment.pk %}"><span class="fa fa-remove"></span></a>
+                  </div>
                 {% endif %}
 
             {% endif %}
-
+            <hr>
          {% empty %}
-            <h4>No comments posted.</h4>
+            <h3>No comments posted.</h3>
          {% endfor %}
-
+        <br>
       </div>
   {% endblock %}

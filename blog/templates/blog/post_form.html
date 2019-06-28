@@ -3,16 +3,16 @@
 
   {% block content %}
       {% if not form.instance.pk %}
-          <h1>Create New Post:</h1>
+          <h1 class="posttitle">Create New Post:</h1>
       {% else %}
-          <h1>Update Post:</h1>
+          <h1 class="posttitle">Update Post:</h1>
       {% endif %}
 
-      <form method="post">
+      <form class="formcontent" method="post">
           {% csrf_token %}
           {{form.as_p}}
-          <button type="submit" class="save btn btn-primary">Save </button> 
+          <button type="submit" class="btn btn-primary btn-comment">SAVE </button>
       </form>
-
+      <br><br>
       <script>var editor = new MediumEditor('.editable');</script>
   {% endblock %}
