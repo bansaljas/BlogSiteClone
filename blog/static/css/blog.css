@@ -1,5 +1,7 @@
 /* font-family: 'Dancing Script', cursive; */
 /* font-family: 'Stylish', sans-serif; */
+/* font-family: 'Permanent Marker', cursive; */
+
 #welcome{
   color: white;
 }
@@ -20,12 +22,95 @@
 }
 
 .centerstage{
-  font-family: 'Stylish', sans-serif;
+  color:rgb(88,88,88);
+  font-family: 'Permanent Marker', cursive;
   margin-left: auto;
   margin-right: auto;
+}
+
+.posttitle{
+  text-align: center;
+  color:rgb(40, 40, 40);
+  font-family: 'Permanent Marker', cursive;
+}
+
+.cmt_num{
+  color: rgb(88,88,88);
+  position:absolute;
+  right:30px;
 }
 
 .btn-comment{
   position: absolute;
   right: 0px;
+  font-family: 'Stylish', sans-serif;
+  background: blue;
+}
+
+.postcontent{
+  font-family: 'Dancing Script', cursive;
+}
+
+.formcontent{
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.5em;
+}
+
+.cmnt{
+  position: absolute;
+  right:10px;
+}
+
+.logintext{
+  font-family: 'Stylish', sans-serif;
+  text-align: center;
+}
+
+body{
+  background-image: url(http://www.ketdoan.org/wordpress/wp-content/uploads/2013/03/grey-website-background-illusionapparel-1024x640.jpg);
+  background-size:contain;
+}
+
+/* COLOR CHANGER */
+/*Credit and Source: http://codepen.io/thapliyalshivam/pen/dvgXVO*/
+
+.loader {
+  /* position:fixed; */
+  right:0;
+  left:0;
+  top:74px;
+  bottom:0;
+  filter:hue-rotate(0deg);
+  background:linear-gradient(45deg,#0f8,#08f);
+  animation:hue 10000ms infinite linear;
+}
+
+@keyframes spinify {
+  0% {
+    transform: translate(0px,0px);
+
+  }
+  33% {
+    transform: translate(0px,24px);
+    /* border-radius:100%;
+    width:10px;
+    height:10px; */
+
+  }
+   66% {
+    transform:translate(0px,-16px);
+  }
+
+   88% {
+    transform:translate(0px,4px);
+
+  }
+  100% {
+    transform:translate(0px,0px);
+  }
+}
+
+@keyframes hue{
+  0%{filter: hue-rotate(0deg);}
+  100%{filter:hue-rotate(360deg);}
 }
